@@ -2,6 +2,7 @@ import math
 from timed_decorator.simple_timed import timed
 
 
+# https://chat.deepseek.com/share/qmzdgfvx6whf4w46h4
 def dft_k(x, k, N):
     sum_real = 0.0
     sum_imag = 0.0

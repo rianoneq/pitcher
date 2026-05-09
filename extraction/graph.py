@@ -4,17 +4,8 @@ import numpy as np
 
 plt.style.use('dark_background')
 
-def plot_spectrogram(data, samplerate, hop_size, max_freq=16000):
-    time_bins, freq_bins = data.shape
 
-    # (time, frequency) —> (frequency, time)
-import matplotlib.pyplot as plt
-import numpy as np
-
-
-plt.style.use('dark_background')
-
-def plot_spectrogram(data, samplerate, hop_size):
+def plot_spectrogram(data, samplerate, hop_size, peaks=None):
     time_bins, freq_bins = data.shape
 
     # (time, frequency) —> (frequency, time)
@@ -39,6 +30,14 @@ def plot_spectrogram(data, samplerate, hop_size):
 
     plt.gca().xaxis.set_major_formatter(plt.FuncFormatter(time_format))
     plt.gca().yaxis.set_major_formatter(plt.FuncFormatter(freq_format))
+
+    if peaks is not None and len(peaks) > 0:
+        peak_times = [p[0] for p in peaks]
+        peak_freqs = [p[1] for p in peaks]
+
+        plt.scatter(peak_times, peak_freqs, 
+            c='red', s=30, alpha=1.0, edgecolors='white', linewidth=0.5)
+        plt.legend(loc='upper right')
 
     plt.colorbar(label='volume (dB)')
     plt.xlabel('time (s)')

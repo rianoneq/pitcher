@@ -4,6 +4,7 @@ import numpy as np
 
 def read_wav_standard(filename):
     with wave.open(filename, 'rb') as wav:
+        # L0_lo, L0_hi, R0_lo, R0_hi, sample_width * channels
         channels = wav.getnchannels()
         samplerate = wav.getframerate()
         sample_width = wav.getsampwidth()
@@ -17,6 +18,7 @@ def read_wav_standard(filename):
         samples = np.frombuffer(frames, dtype=dtype)
 
         if channels > 1:
+            # to mono
             samples = samples.reshape(-1, channels)
             samples = np.mean(samples, axis=1)
 
@@ -24,4 +26,3 @@ def read_wav_standard(filename):
         samples = samples.astype(np.float32) / max_val
 
         return samplerate, samples
-
