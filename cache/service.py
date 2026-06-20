@@ -13,7 +13,6 @@ class CacheService:
             return pickle.load(f)
 
     def exists(self) -> bool:
-        print(Path(self.params.cache_path), self.params.cache_path)
         return Path(self.params.cache_path).exists()
 
     def save(self, data):

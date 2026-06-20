@@ -1,4 +1,6 @@
+from entity.hashes import HashParams
 from entity.peaks import PeaksParams
+from extraction.hashes import get_hashes
 from extraction.graph import plot_spectrogram
 from extraction.spectr import audio_to_spectrogram
 from extraction.twin_peaks import get_peaks
@@ -22,6 +24,7 @@ peaks = get_peaks(
         use_cache=True
     ),
 )
+hashes = get_hashes(peaks, HashParams())
 # plot_spectrogram(spectrogram, samplerate, hop_size, peaks=peaks)
 # plot_spectrogram(spectrogram, samplerate, hop_size)
 # cli_volume(spectrogram, samplerate, hop_size)

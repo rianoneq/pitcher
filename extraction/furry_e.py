@@ -21,7 +21,6 @@ def dft_k(x, k, N):
 
     return complex(sum_real, sum_imag)
 
-
 def dft(x):
     N = len(x)
     result = []
