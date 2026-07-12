@@ -25,6 +25,7 @@ def get_sample_data(sample, use_cache: bool = True):
             use_cache=use_cache
         ),
     )
+    print(f'peaks count: {len(peaks)}\n')
     hashes = get_hashes(peaks, HashParams())
 
     return hashes
@@ -33,9 +34,10 @@ hashes1 = get_sample_data(
     sample='samples/2/scotland-forever-with-song.wav',
     use_cache=True
 )
+
 hashes2 = get_sample_data(
-    sample='samples/2/speedup/scotland-forever-with-song.wav',
-    # sample='samples/1/Me and the Birds - duster (128k).wav',
+    # sample='samples/2/speedup/scotland-forever-with-song.wav',
+    sample='samples/1/Me and the Birds - duster (128k).wav',
     use_cache=True
 )
 
