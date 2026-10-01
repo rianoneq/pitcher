@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-# 1. СОЗДАЕМ СИГНАЛ (как твой код)
+# 1. СОЗДАЕМ СИГНАЛ 
 fs = 10000  # частота дискретизации
 t = np.linspace(0, 0.02, fs)
 f = 100  # базовая частота
@@ -52,3 +52,4 @@ plt.xlim(0, 1000)
 
 plt.tight_layout()
 plt.show()
+t

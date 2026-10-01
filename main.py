@@ -31,13 +31,14 @@ def get_sample_data(sample, use_cache: bool = True):
     return hashes
 
 hashes1 = get_sample_data(
+    # sample='samples/2/slowed/scotland-forever-with-song.wav',
     sample='samples/2/scotland-forever-with-song.wav',
     use_cache=True
 )
 
 hashes2 = get_sample_data(
-    # sample='samples/2/speedup/scotland-forever-with-song.wav',
-    sample='samples/1/Me and the Birds - duster (128k).wav',
+    sample='samples/2/speedup/scotland-forever-with-song.wav',
+    # sample='samples/1/Me and the Birds - duster (128k).wav',
     use_cache=True
 )
 

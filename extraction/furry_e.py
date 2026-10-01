@@ -1,20 +1,32 @@
 import math
 from timed_decorator.simple_timed import timed
 
-
+# https://www.youtube.com/watch?v=qgM-DhNazXQ
 # https://chat.deepseek.com/share/qmzdgfvx6whf4w46h4
+# https://chat.deepseek.com/share/lvp22yuj3vtpb0sm4u
 def dft_k(x, k, N):
+    # синусоиду и косинусоиду можно разложить из круга на координаты и наоборот
+
+    # берется эталонный косинус и эталонный синус для этого угла
+    # пробегаемся по всем частотам до N
+    # и сравниваем кажду с эталонами во внутреннем цикле по n (времени), 
+    # если итогов сумма большая - похоже (векторы сонаправлены), нет (в разные стороны) - нет
+    # output: 5 + 0.0i = чистый косинус, 0.0 + 5i = чистый синус, 6.7 + 5.2i = смешанный
+
+    # двигаемся по координатной окружности
     sum_real = 0.0
     sum_imag = 0.0
     for n in range(N):
         angle = -2 * math.pi * k * n / N
-        # e^{-i*angle} = cos(angle) + i*sin(angle)
-        twist_real = math.cos(angle)
-        twist_imag = -math.sin(angle)
 
-        # (a + 0*i) * (c + d*i) = a*c + a*d*i
-        real_part = x[n] * twist_real
-        imag_part = x[n] * twist_imag
+        # любая точка на окружности — это поворот на угол angle.
+        # e^{-i*angle} = cos(angle) + i*sin(angle)
+
+        twist_real = math.cos(angle) # эталон косинус
+        twist_imag = -math.sin(angle) # эталон синус
+
+        real_part = x[n] * twist_real # проекция на x
+        imag_part = x[n] * twist_imag # проекция на y
 
         sum_real += real_part
         sum_imag += imag_part

@@ -23,6 +23,8 @@ def read_wav_standard(filename):
             samples = np.mean(samples, axis=1)
 
         max_val = 2 ** (sample_width * 8 - 1)
+
+        # normalization
         samples = samples.astype(np.float32) / max_val
 
         return samplerate, samples

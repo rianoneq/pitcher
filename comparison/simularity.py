@@ -3,9 +3,10 @@ from collections import Counter
 from comparison.hashes import normalize_hashes
 
 
-DELTA_TOLERANCE = 10
-FREQ_STEP = 3
+DELTA_TOLERANCE = 14
+FREQ_STEP = 12
 DELTA_STEP = 5
+
 
 def match_tracks(hashes1, hashes2):
     hashes1_norm = normalize_hashes(hashes1, freq_step=FREQ_STEP, delta_step=DELTA_STEP)

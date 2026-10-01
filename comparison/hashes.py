@@ -3,8 +3,8 @@ from entity.hashes import HashParams
 
 SHIFT_CURRENT_FREQ = 10
 SHIFT_FUTURE_FREQ = 22
-DELTA_TOLERANCE = 7
-FREQ_STEP = 7
+DELTA_TOLERANCE = 12
+FREQ_STEP = 12
 
 def normalize_hashes(hashes, freq_step=3, delta_step=5):
     norm = {}
@@ -18,7 +18,7 @@ def normalize_hashes(hashes, freq_step=3, delta_step=5):
         if new_key not in norm:
             norm[new_key] = []
         norm[new_key].extend(times)
-    
+
     return norm
 
 def get_hashes(peaks: list[tuple[int, int]], params: 'HashParams'):
