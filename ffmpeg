@@ -1,0 +1,3 @@
+ffmpeg -i samples/3/sok.wav -filter:a "atempo=1.000" samples/3/speedup/0%/speedup.wav
+ffmpeg -i samples/3/speedup/2%/speedup.wav -metadata artist="bezдарnostь" -metadata title="visoq" -c:a copy samples/3/speedup/2%/speedup_new.wav
+ffmpeg -i input.wav output.mp3

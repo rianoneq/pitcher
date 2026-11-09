@@ -13,7 +13,12 @@ hop_size = 512
 
 def get_sample_data(sample, use_cache: bool = True):
     print(f'{window_size=} {hop_size=} {sample=}')
-    spectrogram, samplerate = audio_to_spectrogram(sample, window_size=window_size, hop_size=hop_size, use_cache=use_cache)
+    spectrogram, samplerate = audio_to_spectrogram(
+        sample,
+        window_size=window_size,
+        hop_size=hop_size,
+        use_cache=use_cache
+    )
     peaks = get_peaks(
         spectrogram,
         PeaksParams(
@@ -32,14 +37,14 @@ def get_sample_data(sample, use_cache: bool = True):
 
 hashes1 = get_sample_data(
     # sample='samples/2/slowed/scotland-forever-with-song.wav',
-    sample='samples/2/scotland-forever-with-song.wav',
+    sample='samples/3/sok.wav',
     use_cache=True
 )
 
 hashes2 = get_sample_data(
-    sample='samples/2/speedup/scotland-forever-with-song.wav',
+    sample='samples/3/speedup/2%/speedup.wav',
     # sample='samples/1/Me and the Birds - duster (128k).wav',
-    use_cache=True
+    use_cache=False
 )
 
 match_tracks(hashes1, hashes2)
